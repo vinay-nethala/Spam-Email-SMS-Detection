@@ -1,0 +1,67 @@
+============================================================
+      [EMAIL/SMS SPAM DETECTION MACHINE LEARNING TRAINING]
+============================================================
+
+[1/5] Loading dataset from: data\spam.csv
+      Total samples: 5572
+      Ham (Not Spam) samples: 4825
+      Spam samples: 747
+
+[2/5] Cleaning and preprocessing text...
+
+[3/5] Splitting dataset (80% Train, 20% Test)...
+      Training samples: 4457
+      Testing samples:  1115
+
+[4/5] Vectorizing text with TF-IDF & training Naive Bayes model...
+
+[5/5] Evaluating model performance...
+
+--------------------------------------------------
+ Accuracy:  98.21%
+ Precision: 97.78% (How many detected spams were actual spam)
+ Recall:    88.59% (How many actual spams were successfully detected)
+ F1-Score:  92.96%
+--------------------------------------------------
+
+Confusion Matrix:
+  True Ham (Legitimate): 963 | False Spam (False Alarm): 3
+  False Ham (Missed):     17 | True Spam (Detected):    132
+
+Detailed Classification Report:
+                precision    recall  f1-score   support
+
+Ham (Not Spam)       0.98      1.00      0.99       966
+          Spam       0.98      0.89      0.93       149
+
+      accuracy                           0.98      1115
+     macro avg       0.98      0.94      0.96      1115
+  weighted avg       0.98      0.98      0.98      1115
+
+[OK] Trained model and TF-IDF vectorizer saved in 'models/' folder!
+
+============================================================
+              QUICK SAMPLE PREDICTIONS
+============================================================
+
+Message: "Hey! Are you free for lunch tomorrow at 1 PM?"
+Result:  [NOT SPAM (HAM)] (Confidence: 99.05%)
+
+Message: "URGENT! You have won a 1000 cash prize! Claim your reward now by calling 09061701461!"
+Result:  [SPAM] (Confidence: 100.00%)
+
+Message: "Can you please send me the class notes from yesterday's lecture?"
+Result:  [NOT SPAM (HAM)] (Confidence: 99.57%)
+
+Message: "Congratulations! Click here to claim your free lottery ticket immediately."
+Result:  [SPAM] (Confidence: 98.16%)
+
+=======================================================
+           EMAIL / SMS SPAM PREDICTION (CLI TEST)
+=======================================================
+Message: "Congratulations! You have won Rs 50,000. Click here to claim your prize."
+-------------------------------------------------------
+Prediction: [SPAM]
+Spam Probability:     99.67%
+Ham (Legit) Probability: 0.33%
+=======================================================
